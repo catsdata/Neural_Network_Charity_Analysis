@@ -67,21 +67,20 @@ Using Pandas and the Scikit-Learn’s StandardScaler(), the dataset was preproce
         - SPECIAL_CONSIDERATIONS
 - Fit and Scaled the data using StandardScaler()
 
-![del1](del1 image)
+![del1](https://github.com/catsdata/Neural_Network_Charity_Analysis/blob/main/images/del1.PNG)
 
 ### Compile, Train, and Evaluate the Model
 
-Using your knowledge of TensorFlow, you’ll design a neural network, or deep learning model, to create a binary classification model that can predict if an Alphabet Soup–funded organization will be successful based on the features in the dataset. You’ll need to think about how many inputs there are before determining the number of neurons and layers in your model. Once you’ve completed that step, you’ll compile, train, and evaluate your binary classification model to calculate the model’s loss and accuracy.
+Using TensorFlow, designed a neural network to create a binary classification model that can predict if an Alphabet Soup–funded organization will be successful based on the features in the dataset. 
 
-1. Create a neural network model by assigning the number of input features and nodes for each layer using Tensorflow Keras.
-2. Create the first hidden layer and choose an appropriate activation function.
-3. If necessary, add a second hidden layer with an appropriate activation function.
-4. Create an output layer with an appropriate activation function.
-5. Check the structure of the model.
-6. Compile and train the model.
-7. Create a callback that saves the model's weights every 5 epochs.
-8. Evaluate the model using the test data to determine the loss and accuracy.
-9. Save and export your results to an HDF5 file, and name it AlphabetSoupCharity.h5.
+- Created a neural network model by assigning the count of input features for each layer using Tensorflow Keras
+- Created two hidden layers with "relu" activation with 10 and 5 nodes respecitively
+- Created an output layer with a "sigmoid" activation
+- Compiled and trained the model with a callback that saves the model's weights every 5 epochs.
+- Evaluated the model's loss 55.2% and accuracy 72.6%.
+- Saved and exported results to an HDF5 file: [AlphabetSoupCharity.h5](https://github.com/catsdata/Neural_Network_Charity_Analysis/blob/main/AlphabetSoupCharity.h5).
+
+![del2](https://github.com/catsdata/Neural_Network_Charity_Analysis/blob/main/images/del2.PNG)
 
 ### Optimize the Model
 

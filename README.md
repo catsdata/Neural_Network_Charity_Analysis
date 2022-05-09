@@ -13,23 +13,21 @@
 
 ## Overview
 
-Beks has come a long way since her first day at that boot camp five years ago—and since earlier this week, when she started learning about neural networks! Now, she is finally ready to put her skills to work to help the foundation predict where to make investments.
+Using a data set of 34,000 organizations that have been funded over the years, create a binary classifier that is capable of predicting whether applicants will be successful if funded by Alphabet Soup.
 
-With your knowledge of machine learning and neural networks, you’ll use the features in the provided dataset to help Beks create a binary classifier that is capable of predicting whether applicants will be successful if funded by Alphabet Soup.
+The following detail has been provided:
 
-From Alphabet Soup’s business team, Beks received a CSV containing more than 34,000 organizations that have received funding from Alphabet Soup over the years. Within this dataset are a number of columns that capture metadata about each organization, such as the following:
-
-EIN and NAME—Identification columns
-APPLICATION_TYPE—Alphabet Soup application type
-AFFILIATION—Affiliated sector of industry
-CLASSIFICATION—Government organization classification
-USE_CASE—Use case for funding
-ORGANIZATION—Organization type
-STATUS—Active status
-INCOME_AMT—Income classification
-SPECIAL_CONSIDERATIONS—Special consideration for application
-ASK_AMT—Funding amount requested
-IS_SUCCESSFUL—Was the money used effectively
+- EIN and NAME:  Identification columns
+- APPLICATION_TYPE:  Alphabet Soup application type
+- AFFILIATION:  Affiliated sector of industry
+- CLASSIFICATION:  Government organization classification
+- USE_CASE:  Use case for funding
+- ORGANIZATION:  Organization type
+- STATUS:  Active status
+- INCOME_AMT:  Income classification
+- SPECIAL_CONSIDERATIONS:  Special consideration for application
+- ASK_AMT:  Funding amount requested
+- IS_SUCCESSFUL:  Was the money used effectively
 
 
 ## Resources
@@ -42,39 +40,34 @@ IS_SUCCESSFUL—Was the money used effectively
         - Pandas
         - SKLearn
             - StandardScaler
+            - OneHotEncoder
             - MinMaxScaler
             - PCA
             - KMeans
+        - TensorFlow
     - Jupyter Notebook
 
 ## Results
 
 ### Preprocessing Data for a Neural Network Model
 
-Using your knowledge of Pandas and the Scikit-Learn’s StandardScaler(), you’ll need to preprocess the dataset in order to compile, train, and evaluate the neural network model later in Deliverable 2.
+Using Pandas and the Scikit-Learn’s StandardScaler(), the dataset was preprocessed the dataset in order to compile, train, and evaluate the neural network model.
 
-1. Open the AlphabetSoupCharity_starter_code.ipynb file, rename it AlphabetSoupCharity.ipynb, and save it to your Neural_Network_Charity_Analysis GitHub folder.
-2. Read in the charity_data.csv to a Pandas DataFrame, and be sure to identify the following in your dataset:
-    - What variable(s) are considered the target(s) for your model?
-    - What variable(s) are considered the feature(s) for your model?
-3. Drop the EIN and NAME columns.
-4. Determine the number of unique values for each column.
-5. For those columns that have more than 10 unique values, determine the number of data points for each unique value.
-6. Create a density plot to determine the distribution of the column values.
-7. Use the density plot to create a cutoff point to bin "rare" categorical variables together in a new column, Other, and then check if the binning was successful.
-8. Generate a list of categorical variables.
-9. Encode categorical variables using one-hot encoding, and place the variables in a new DataFrame.
-10. Merge the one-hot encoding DataFrame with the original DataFrame, and drop the originals.
+- After determining denisty of unique values; CLASSIFICATION and APPLICATION_TYPE were binned to reduce variables
+- Encoded categorical variables using one-hot encoding into a new DataFrame & merged with the original DataFrame
+- Split the data into Target and Features arrays for training and testing datasets
+    - Target set to "Is_Successful" array 
+    - Features set to:
+        - APPLICATION_TYPE
+        - AFFILIATION
+        - CLASSIFICATION
+        - USE_CASE
+        - ORGANIZATION
+        - INCOME_AMT
+        - SPECIAL_CONSIDERATIONS
+- Fit and Scaled the data using StandardScaler()
 
-At this point, your merged DataFrame should look like this: [link](https://courses.bootcampspot.com/courses/913/files/1379957/preview)
-
-The merged DataFame shows four columns: STATUS, ASK_AMT, IS_SUCCESFUL, APPLICATION_TYPE_Other,  APPLICATION_TYPE_T_10, APPLICATION_TYPE_T19, APPLICATION_TYPE_T3 and contains 5 rows and 44 columns.
-
-11. Split the preprocessed data into features and target arrays.
-12. Split the preprocessed data into training and testing datasets.
-13. Standardize numerical variables using Scikit-Learn’s StandardScaler class, then scale the data.
-
-
+![del1](del1 image)
 
 ### Compile, Train, and Evaluate the Model
 

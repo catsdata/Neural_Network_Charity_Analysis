@@ -84,10 +84,27 @@ Using TensorFlow, designed a neural network to create a binary classification mo
 
 ### Optimize the Model
 
-Using your knowledge of TensorFlow, optimize your model in order to achieve a target predictive accuracy higher than 75%. If you can't achieve an accuracy higher than 75%, you'll need to make at least three attempts to do so.
+Attempted to optimize your model in order to achieve a target predictive accuracy higher than 75%. 
 
-NOTE
-The accuracy for the solution is designed to be lower than 75% after completing the requirements for Deliverables 1 and 2.
+#### Attempt #1
+
+I started simple and added an additional layer and spread out the nodes to 20, 10, and 5 respectively.  Activation remained the same, but parameters increased from 501 to 1,151.
+
+![opt1](https://github.com/catsdata/Neural_Network_Charity_Analysis/blob/main/images/opt1.PNG)
+
+The loss increased from 55.2% to 55.5% and accuracy remained 72.6%.   So these changes made very little impact to the results.
+
+#### Attempt #2
+
+I decided to look into the data types of the data a little closer.  The ASK_AMT was an integer and the model is built for object datatypes.  So I converted it and looked at the data points.  $5000 was the primary requested amount, so I binned as $5000 vs Other.  I left the edits to the layers and nodes alone from the first attempt since it didn't impact the results, but the additon of ASK_AMT to the test increased the total parameters to 1,171.
+
+![opt2](https://github.com/catsdata/Neural_Network_Charity_Analysis/blob/main/images/opt2.PNG)
+
+The loss decreased from 55.2% to 55.1% and accuracy increased slightly to 72.8%.   So again, these changes made very little impact to the results.
+
+#### Attempt #3
+
+
 
 Optimize your model in order to achieve a target predictive accuracy higher than 75% by using any or all of the following:
 

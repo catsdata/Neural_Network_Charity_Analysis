@@ -128,4 +128,4 @@ The loss increased substantially to 75.5% and accuracy decreased a teeny bit to 
 
 ## Summary 
 
-
+Overall, I was unsuccessful in improving the model from the original.  Although there may be a solution that will increase the accuracy to over 75%, perhaps Neural/Deep learning isn't the way to go.  A suggestion would be to use Random Forest machine learning to investigate possible clustering of data.  They are built to handle outliers in data, as well as data being non-linear, which we may have in this case.  

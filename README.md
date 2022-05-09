@@ -84,7 +84,7 @@ Using TensorFlow, designed a neural network to create a binary classification mo
 
 ### Optimize the Model
 
-Attempted to optimize your model in order to achieve a target predictive accuracy higher than 75%. 
+Attempted to optimize the model in order to achieve a target predictive accuracy higher than 75%. 
 
 #### Attempt #1
 
@@ -94,6 +94,8 @@ I started simple and added an additional layer and spread out the nodes to 20, 1
 
 The loss increased from 55.2% to 55.5% and accuracy remained 72.6%.   So these changes made very little impact to the results.
 
+[Optimization1.ipynb]()
+
 #### Attempt #2
 
 I decided to look into the data types of the data a little closer.  The ASK_AMT was an integer and the model is built for object datatypes.  So I converted it and looked at the data points.  $5000 was the primary requested amount, so I binned as $5000 vs Other.  I left the edits to the layers and nodes alone from the first attempt since it didn't impact the results, but the additon of ASK_AMT to the test increased the total parameters to 1,171.
@@ -102,47 +104,28 @@ I decided to look into the data types of the data a little closer.  The ASK_AMT 
 
 The loss decreased from 55.2% to 55.1% and accuracy increased slightly to 72.8%.   So again, these changes made very little impact to the results.
 
+[Optimization2.ipynb]()
+
 #### Attempt #3
 
+I decided to scrap the idea of the ASK_AMT being a factor of data that would help.  So this time I went the route of dropping additional features.  Along with EIN and NAME, I also dropped STATUS and SPECIAL_CONSIDERATIONS as the data spread on them were insignificant.  I also decided to try the sigmoid activation on all layers, and increased the nodes to 100, 50, and 25.  Parameters were now substantial at 10,451.
 
+![opt3](https://github.com/catsdata/Neural_Network_Charity_Analysis/blob/main/images/opt3.PNG)
 
-Optimize your model in order to achieve a target predictive accuracy higher than 75% by using any or all of the following:
+The loss increased to 55.5% and accuracy decreased to 72.6%.  And again, these changes made very little impact to the results.
 
-- Adjusting the input data to ensure that there are no variables or outliers that are causing confusion in the model, such as:
-    - Dropping more or fewer columns.
-    - Creating more bins for rare occurrences in columns.
-    - Increasing or decreasing the number of values for each bin.
-- Adding more neurons to a hidden layer.
-- Adding more hidden layers.
-- Using different activation functions for the hidden layers.
-- Adding or reducing the number of epochs to the training regimen.
+[Optimization3.ipynb]()
 
-NOTE
-You will not lose points if your model does not achieve target performance, as long as you make three attempts at optimizing the model in your AlphabetSoupCharity_Optimzation.ipynb file.
+#### Attempt #4
 
-1. Create a new Jupyter Notebook file and name it AlphabetSoupCharity_Optimzation.ipynb.
-2. Import your dependencies, and read in the charity_data.csv to a Pandas DataFrame.
-3. Preprocess the dataset like you did in Deliverable 1, taking into account any modifications to optimize the model.
-4. Design a neural network model, taking into account any modifications that will optimize the model to achieve higher than 75% accuracy.
-5. Create a callback that saves the model's weights every 5 epochs.
-6. Save and export your results to an HDF5 file, and name it AlphabetSoupCharity_Optimization.h5.
-7. Save your AlphabetSoupCharity_Optimzation.ipynb file and AlphabetSoupCharity_Optimization.h5 file to your Neural_Network_Charity_Analysis folder.
+When playing with TensorFlow Playgroungm I recall that some datasets were a bit complicated and even though no changes seemed to occur within 100-200 epochs, that the good results came in closer to 1000 epochs.  So perhaps I'm just impatient.  I chose to modify my attempt from original code (not using ASK_AMT binning), with the original relu activation on 3 hidden layers, but with 150, 75, and 25 nodes.  Total parameters 19,581.  I increased the epochs to 1000, and reduced the callback checkpoint to every 25 epochs to reduce activity a little.  This one took quite a while to run.  I played at least 20 hands of solitaire.  
+
+![opt4](https://github.com/catsdata/Neural_Network_Charity_Analysis/blob/main/images/opt4.PNG)
+
+The loss increased substantially to 75.5% and accuracy decreased a teeny bit to 72.5%.  It's here that I gave up.  Seems everything was hanging at that same accuracy point.
+
+[AlphabetSoupCharity_Optimization.ipynb]()
 
 ## Summary 
 
-### Results: 
-Using bulleted lists and images to support your answers, address the following questions.
-
-Data Preprocessing
-- What variable(s) are considered the target(s) for your model?
-- What variable(s) are considered to be the features for your model?
-- What variable(s) are neither targets nor features, and should be removed from the input data?
-
-Compiling, Training, and Evaluating the Model
-- How many neurons, layers, and activation functions did you select for your neural network model, and why?
-- Were you able to achieve the target model performance?
-- What steps did you take to try and increase model performance?
-
-### Summary: 
-Summarize the overall results of the deep learning model. Include a recommendation for how a different model could solve this classification problem, and explain your recommendation.
 
